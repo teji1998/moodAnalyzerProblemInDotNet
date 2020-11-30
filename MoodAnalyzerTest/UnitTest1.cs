@@ -6,31 +6,55 @@ namespace MoodAnalyzerTest
     [TestClass]
     public class UnitTest1
     {
+
         [TestMethod]
-        public void givenSadMood_WhenAnalyzed_ShouldReturnSad()
+        public void givenSadMood_Should_Return_Sad()
         {
-            string message = "I am Sad Message";
-            MoodAnalyser moodAnalyser = new MoodAnalyser(message);
-            string mood = moodAnalyser.analyzeMood(message);
+            MoodAnalyser analyser = new MoodAnalyser("i am  in Sad Mood");
+            string mood = analyser.analyzeMood();
             Assert.AreEqual("SAD", mood);
         }
-
         [TestMethod]
-        public void givenHappyMood_WhenAnalyzed_ShouldReturnHappy()
+        public void givenHappyMood_Should_Return_Happy()
         {
-            string message = "I am in Happy Mood";
-;            MoodAnalyser moodAnalyser = new MoodAnalyser(message);
-            string mood = moodAnalyser.analyzeMood(message);
+            MoodAnalyser analyser = new MoodAnalyser("i am  in Happy Mood");
+            string mood = analyser.analyzeMood();
             Assert.AreEqual("HAPPY", mood);
         }
-
         [TestMethod]
-        public void givenNullMood_WhenAnalyzed_ShouldReturnHappy()
+        public void givenNullMood_Should_Return_Happy()
         {
-            string message = null;
-            MoodAnalyser moodAnalyse = new MoodAnalyser(message);
-            string mood = moodAnalyse.analyzeMood(message);
+            MoodAnalyser analyser = new MoodAnalyser("i am  in Null Mood");
+            string mood = analyser.analyzeMood();
             Assert.AreEqual("HAPPY", mood);
+        }
+        [TestMethod]
+        public void givenNullMood_Should_Return_Exception()
+        {
+            try
+            {
+                string message = null;
+                MoodAnalyser moodAnalyser = new MoodAnalyser(message);
+                string mood = moodAnalyser.analyzeMood();
+            }
+            catch (MoodAnalyserException e)
+            {
+                Assert.AreEqual("Mood Shouls be Null", e.Message);
+            }
+        }
+        [TestMethod]
+        public void givenInvalidMood_Should_Return_Exception()
+        {
+            try
+            {
+                string message = "";
+                MoodAnalyser moodAnalyser = new MoodAnalyser(message);
+                string mood = moodAnalyser.analyzeMood();
+            }
+            catch (MoodAnalyserException e)
+            {
+                Assert.AreEqual("Mood should not the excepeted", e.Message);
+            }
         }
 
     }
