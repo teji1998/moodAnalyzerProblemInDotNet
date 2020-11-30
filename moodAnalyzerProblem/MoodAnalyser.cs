@@ -12,7 +12,7 @@ namespace moodAnalyzerProblem
             this.message = message;
         }
 
-        public string analyzeMood()
+        public string analyzeMood(string message)
         {
             if (this.message.Contains("Sad"))
                 return "SAD";
