@@ -1,0 +1,13 @@
+C:\Users\PRITHVIL5\source\repos\moodAnalyzerProblem\moodAnalyzerProblem\bin\Debug\netcoreapp3.1\moodAnalyzerProblem.exe
+C:\Users\PRITHVIL5\source\repos\moodAnalyzerProblem\moodAnalyzerProblem\bin\Debug\netcoreapp3.1\moodAnalyzerProblem.deps.json
+C:\Users\PRITHVIL5\source\repos\moodAnalyzerProblem\moodAnalyzerProblem\bin\Debug\netcoreapp3.1\moodAnalyzerProblem.runtimeconfig.json
+C:\Users\PRITHVIL5\source\repos\moodAnalyzerProblem\moodAnalyzerProblem\bin\Debug\netcoreapp3.1\moodAnalyzerProblem.runtimeconfig.dev.json
+C:\Users\PRITHVIL5\source\repos\moodAnalyzerProblem\moodAnalyzerProblem\bin\Debug\netcoreapp3.1\moodAnalyzerProblem.dll
+C:\Users\PRITHVIL5\source\repos\moodAnalyzerProblem\moodAnalyzerProblem\bin\Debug\netcoreapp3.1\moodAnalyzerProblem.pdb
+C:\Users\PRITHVIL5\source\repos\moodAnalyzerProblem\moodAnalyzerProblem\obj\Debug\netcoreapp3.1\moodAnalyzerProblem.csprojAssemblyReference.cache
+C:\Users\PRITHVIL5\source\repos\moodAnalyzerProblem\moodAnalyzerProblem\obj\Debug\netcoreapp3.1\moodAnalyzerProblem.AssemblyInfoInputs.cache
+C:\Users\PRITHVIL5\source\repos\moodAnalyzerProblem\moodAnalyzerProblem\obj\Debug\netcoreapp3.1\moodAnalyzerProblem.AssemblyInfo.cs
+C:\Users\PRITHVIL5\source\repos\moodAnalyzerProblem\moodAnalyzerProblem\obj\Debug\netcoreapp3.1\moodAnalyzerProblem.csproj.CoreCompileInputs.cache
+C:\Users\PRITHVIL5\source\repos\moodAnalyzerProblem\moodAnalyzerProblem\obj\Debug\netcoreapp3.1\moodAnalyzerProblem.dll
+C:\Users\PRITHVIL5\source\repos\moodAnalyzerProblem\moodAnalyzerProblem\obj\Debug\netcoreapp3.1\moodAnalyzerProblem.pdb
+C:\Users\PRITHVIL5\source\repos\moodAnalyzerProblem\moodAnalyzerProblem\obj\Debug\netcoreapp3.1\moodAnalyzerProblem.genruntimeconfig.cache
