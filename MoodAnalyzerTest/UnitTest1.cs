@@ -6,9 +6,7 @@ namespace MoodAnalyzerTest
     [TestClass]
     public class UnitTest1
     {
-        /// <summary>
-        /// /
-        /// </summary>
+        
         [TestMethod]
         public void GivenSadMood_WhenAnalyzed_ShouldReturnSad()
         {
@@ -16,6 +14,7 @@ namespace MoodAnalyzerTest
             string mood = analyser.analyzeMood();
             Assert.AreEqual("SAD", mood);
         }
+        
         [TestMethod]
         public void GivenHappyMood_WhenAnalyzed_ShouldReturnHappy()
         {
@@ -23,6 +22,7 @@ namespace MoodAnalyzerTest
             string mood = analyser.analyzeMood();
             Assert.AreEqual("HAPPY", mood);
         }
+        
         [TestMethod]
         public void GivenNullMood_WhenAnalyzed_ShouldReturnHappy()
         {
@@ -30,6 +30,7 @@ namespace MoodAnalyzerTest
             string mood = analyser.analyzeMood();
             Assert.AreEqual("HAPPY", mood);
         }
+        
         [TestMethod]
         public void GivenNullMood_WhenAnalysed_ShouldReturnException()
         {
@@ -166,6 +167,7 @@ namespace MoodAnalyzerTest
             string result = MoodAnalyserFactory.setField("HAPPY", "message");
             Assert.AreEqual("HAPPY", result);
         }
+        
         [TestMethod]
         public void GivenWrongMessage_WithReflection_Should_ReturnException()
         {
@@ -178,6 +180,7 @@ namespace MoodAnalyzerTest
                 Assert.AreEqual(exception.Message, "Field is absent");
             }
         }
+        
         [TestMethod]
         public void GivenNullMessage_WithReflection_ShouldReturnException()
         {
@@ -190,7 +193,6 @@ namespace MoodAnalyzerTest
                 Assert.AreEqual(exception.Message, "Message can't be null");
             }
         }
-
 
     }
 }
