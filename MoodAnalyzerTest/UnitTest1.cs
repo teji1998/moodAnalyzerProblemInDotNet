@@ -6,30 +6,32 @@ namespace MoodAnalyzerTest
     [TestClass]
     public class UnitTest1
     {
-
+        /// <summary>
+        /// /
+        /// </summary>
         [TestMethod]
-        public void givenSadMood_Should_Return_Sad()
+        public void GivenSadMood_WhenAnalyzed_ShouldReturnSad()
         {
             MoodAnalyser analyser = new MoodAnalyser("i am  in Sad Mood");
             string mood = analyser.analyzeMood();
             Assert.AreEqual("SAD", mood);
         }
         [TestMethod]
-        public void givenHappyMood_Should_Return_Happy()
+        public void GivenHappyMood_WhenAnalyzed_ShouldReturnHappy()
         {
             MoodAnalyser analyser = new MoodAnalyser("i am  in Happy Mood");
             string mood = analyser.analyzeMood();
             Assert.AreEqual("HAPPY", mood);
         }
         [TestMethod]
-        public void givenNullMood_Should_Return_Happy()
+        public void GivenNullMood_WhenAnalyzed_ShouldReturnHappy()
         {
             MoodAnalyser analyser = new MoodAnalyser("i am  in Null Mood");
             string mood = analyser.analyzeMood();
             Assert.AreEqual("HAPPY", mood);
         }
         [TestMethod]
-        public void givenNullMood_Should_Return_Exception()
+        public void GivenNullMood_WhenAnalysed_ShouldReturnException()
         {
             try
             {
@@ -42,23 +44,9 @@ namespace MoodAnalyzerTest
                 Assert.AreEqual("Mood is null", e.Message);
             }
         }
-        /*[TestMethod]
-        public void givenInvalidMood_Should_Return_Exception()
-        {
-            try
-            {
-                string message = "";
-                MoodAnalyser moodAnalyser = new MoodAnalyser(message);
-                string mood = moodAnalyser.analyzeMood();
-            }
-            catch (MoodAnalyserException e)
-            {
-                Assert.AreEqual("Mood should not the excepeted", e.Message);
-            }
-        }*/
-
+      
         [TestMethod]
-        public void GivenMoodAnalyser_className_Should_ReturnMoodAnalyserObject()
+        public void GivenMoodAnalyser_WithCorrectClassName_ShouldReturnMoodAnalyserObject()
         {
             //Arrange
             object expexted = new MoodAnalyser();
@@ -69,7 +57,7 @@ namespace MoodAnalyzerTest
         }
 
         [TestMethod]
-        public void GivenMoodAnalyser_withImproperClassName_ShouldThrowException()
+        public void GivenMoodAnalyser_WithWrongClassName_ShouldThrowException()
         {
             try
             {
@@ -88,7 +76,7 @@ namespace MoodAnalyzerTest
         }
 
         [TestMethod]
-        public void GivenMoodAnalyser_withImproperConstructorName_ShouldThrowException()
+        public void GivenMoodAnalyser_WithWrongConstructorName_ShouldThrowException()
         {
             try
             {
@@ -107,7 +95,7 @@ namespace MoodAnalyzerTest
         }
 
         [TestMethod]
-        public void GivenModdAalyserClassName_ShouldReturnMoodAnalyserObject_UsingParametrizedConstructor()
+        public void GivenMoodAnalyserClassName_WhenAnalsed_ShouldReturnMoodAnalyserObject()
         {
             //Arrange
             object excpected = new MoodAnalyser("HAPPY");
@@ -118,7 +106,7 @@ namespace MoodAnalyzerTest
         }
 
         [TestMethod]
-        public void GivenModdAalyserImproperClassName_ShouldReturnMoodAnalyserObject_ShouldReturnConstructor()
+        public void GivenMoodAnalyserWrongClassName_WhenAnalysed_ShouldReturnsMoodAnalyserObject()
         {
             try
             {
@@ -135,7 +123,7 @@ namespace MoodAnalyzerTest
         }
 
         [TestMethod]
-        public void GivenModdAalyserImproperConstructorName_ShouldReturnMoodAnalyserObject_ShouldReturnConstructor()
+        public void GivenMoodAnalyserWrongConstructorName_WhenReturnsMoodAnalyserObject_ShouldReturnConstructor()
         {
             try
             {
@@ -152,7 +140,7 @@ namespace MoodAnalyzerTest
         }
 
         [TestMethod]
-        public void GivenHappyMood_ShouldReturnHappy_UsingReflection()
+        public void GivenHappyMood_UsingReflection_ShouldReturnHappy()
         {
             string expected = "HAPPY";
             string mood = MoodAnalyserFactory.InvokeAnalyzeMethod("i am Happy message", "analyzeMood");
@@ -160,7 +148,7 @@ namespace MoodAnalyzerTest
         }
 
         [TestMethod]
-        public void GivenHappyMood_WithImproperMethodName_ShouldThrowMoodAnalyserException()
+        public void GivenHappyMood_WithWrongMethodName_ShouldThrowMoodAnalyserException()
         {
             try
             {
@@ -171,6 +159,38 @@ namespace MoodAnalyzerTest
                 Assert.AreEqual("No such class present", exception.Message);
             }
         }
+
+        [TestMethod]
+        public void GivenHappyMessage_WithReflection_Should_ReturnHappy()
+        {
+            string result = MoodAnalyserFactory.setField("HAPPY", "message");
+            Assert.AreEqual("HAPPY", result);
+        }
+        [TestMethod]
+        public void GivenWrongMessage_WithReflection_Should_ReturnException()
+        {
+            try
+            {
+                string result = MoodAnalyserFactory.setField("HAPPY", "messagess");
+            }
+            catch (MoodAnalyserException exception)
+            {
+                Assert.AreEqual(exception.Message, "Field is absent");
+            }
+        }
+        [TestMethod]
+        public void GivenNullMessage_WithReflection_ShouldReturnException()
+        {
+            try
+            {
+                string result = MoodAnalyserFactory.setField(null, "message");
+            }
+            catch (MoodAnalyserException exception)
+            {
+                Assert.AreEqual(exception.Message, "Message can't be null");
+            }
+        }
+
 
     }
 }
