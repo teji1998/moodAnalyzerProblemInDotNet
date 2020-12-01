@@ -164,7 +164,7 @@ namespace MoodAnalyzerTest
         {
             try
             {
-                string mood = MoodAnalyserFactory.InvokeAnalyzeMethod("This is happy message", "AnalyseMoodd");
+                string mood = MoodAnalyserFactory.InvokeAnalyzeMethod("This is happy message", "AnalyseMoodddd");
             }
             catch (MoodAnalyserException exception)
             {
