@@ -8,13 +8,13 @@ namespace moodAnalyzerProblem
     {
         public enum ExceptionType
         {
-            NULL_EXCEPTION, EMPTY_EXCEPTION, NO_FIELD_EXCEPTION
+            NULL_EXCEPTION, EMPTY_EXCEPTION, NO_FIELD_EXCEPTION, NO_SUCH_METHOD, NO_SUCH_CLASS
         }
 
         private ExceptionType exceptionType;
         private string message;
 
-        public MoodAnalyserException(ExceptionType exceptionType, string message)
+        public MoodAnalyserException(ExceptionType exceptionType, string message) :base(message)
         {
             this.exceptionType = exceptionType;
         }

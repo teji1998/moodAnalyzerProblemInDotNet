@@ -39,10 +39,10 @@ namespace MoodAnalyzerTest
             }
             catch (MoodAnalyserException e)
             {
-                Assert.AreEqual("Mood Shouls be Null", e.Message);
+                Assert.AreEqual("Mood is null", e.Message);
             }
         }
-        [TestMethod]
+        /*[TestMethod]
         public void givenInvalidMood_Should_Return_Exception()
         {
             try
@@ -54,6 +54,55 @@ namespace MoodAnalyzerTest
             catch (MoodAnalyserException e)
             {
                 Assert.AreEqual("Mood should not the excepeted", e.Message);
+            }
+        }*/
+
+        [TestMethod]
+        public void GivenMoodAnalyser_className_Should_ReturnMoodAnalyserObject()
+        {
+            //Arrange
+            object expexted = new MoodAnalyser();
+            //Act
+            object obj = MoodAnalyserFactory.CreateMoodAnalyser("moodAnalyzerProblem.MoodAnalyser", "MoodAnalyser");
+            //Assert
+            expexted.Equals(obj);
+        }
+
+        [TestMethod]
+        public void GivenMoodAnalyser_withImproperClassName_ShouldThrowException()
+        {
+            try
+            {
+                //Arrange
+                string className = "Demo.MoodAnalyser";
+                string constructor = "MoodAnalyser";
+                //Act
+                object expected = new MoodAnalyser();
+                object obj = MoodAnalyserFactory.CreateMoodAnalyser(className, constructor);
+            }
+            catch (MoodAnalyserException moodException)
+            {
+                //Assert
+                Assert.AreEqual("No such class present", moodException.Message);
+            }
+        }
+
+        [TestMethod]
+        public void GivenMoodAnalyser_withImproperConstructorName_ShouldThrowException()
+        {
+            try
+            {
+                //Arrange
+                string className = "MoodAnalyser.MoodAnalyser";
+                string constructor = "MoodAnalyzer";
+                //Act
+                object expected = new MoodAnalyser();
+                object obj = MoodAnalyserFactory.CreateMoodAnalyser(className, constructor);
+            }
+            catch (MoodAnalyserException moodException)
+            {
+                //Assert
+                Assert.AreEqual("No such constructor present", moodException.Message);
             }
         }
 
