@@ -130,7 +130,7 @@ namespace MoodAnalyzerTest
             }
             catch (MoodAnalyserException exception)
             {
-                Assert.AreEqual("Class not found", exception.Message);
+                Assert.AreEqual("No such class present", exception.Message);
             }
         }
 
@@ -142,12 +142,33 @@ namespace MoodAnalyzerTest
                 //Arrange
                 object excpected = new MoodAnalyser("sad");
                 //Act
-                object obj = MoodAnalyserFactory.CreateMoodAnalyserObjectwithParaMeterizedConstructor("MoodAnalyser.MoodAnalyse", "MoodAnalyseee", "HAPPY");
+                object obj = MoodAnalyserFactory.CreateMoodAnalyserObjectwithParaMeterizedConstructor("moodAnalyzerProblem.MoodAnalyser", "MoodAnalyseee", "HAPPY");
                 //Assert
             }
             catch (MoodAnalyserException exception)
             {
-                Assert.AreEqual("Constructor not found", exception.Message);
+                Assert.AreEqual("No such constructor present", exception.Message);
+            }
+        }
+
+        [TestMethod]
+        public void GivenHappyMood_ShouldReturnHappy_UsingReflection()
+        {
+            string expected = "HAPPY";
+            string mood = MoodAnalyserFactory.InvokeAnalyzeMethod("i am Happy message", "analyzeMood");
+            Assert.AreEqual(expected, mood);
+        }
+
+        [TestMethod]
+        public void GivenHappyMood_WithImproperMethodName_ShouldThrowMoodAnalyserException()
+        {
+            try
+            {
+                string mood = MoodAnalyserFactory.InvokeAnalyzeMethod("This is happy message", "AnalyseMoodd");
+            }
+            catch (MoodAnalyserException exception)
+            {
+                Assert.AreEqual("No such class present", exception.Message);
             }
         }
 
