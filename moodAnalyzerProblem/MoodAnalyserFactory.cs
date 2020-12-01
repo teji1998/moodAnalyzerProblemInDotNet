@@ -8,7 +8,7 @@ namespace moodAnalyzerProblem
 {
     public class MoodAnalyserFactory
     {
-        public static object CreateMoodAnalyser(string className,string constructorName)
+        public static object CreateMoodAnalyser(string className, string constructorName)
         {
             string pattern = @"." + constructorName + "$";
             Match output = Regex.Match(className, pattern);
@@ -19,17 +19,41 @@ namespace moodAnalyzerProblem
                     Assembly executing = Assembly.GetExecutingAssembly();
                     Type type = Type.GetType(className);
                     return Activator.CreateInstance(type);
-                } catch (ArgumentNullException)
+                }
+                catch (ArgumentNullException)
                 {
                     throw new MoodAnalyserException(MoodAnalyserException.ExceptionType.NO_SUCH_CLASS,
                         "No such class present");
-                } 
+                }
             }
             else
             {
                 throw new MoodAnalyserException(MoodAnalyserException.ExceptionType.NO_SUCH_METHOD, "No such constructor present");
             }
-
         }
+
+            public static object CreateMoodAnalyserObjectwithParaMeterizedConstructor(string className, string constructorName, string message)
+            {
+                Type type = typeof(MoodAnalyser);
+                if (type.Name.Equals(className) || type.FullName.Equals(className))
+                {
+                    if (type.Name.Equals(constructorName))
+                    {
+                        ConstructorInfo constructor = type.GetConstructor(new[] { typeof(string) });
+                        object instance = constructor.Invoke(new object[] { message });
+                        return instance;
+                    }
+                    else
+                    {
+                        throw new MoodAnalyserException(MoodAnalyserException.ExceptionType.NO_SUCH_METHOD, "No such constructor present");
+                    }
+                }
+                else
+                {
+                    throw new MoodAnalyserException(MoodAnalyserException.ExceptionType.NO_SUCH_CLASS, "No such class present");
+                }
+            }
+
+        
     }
 }
